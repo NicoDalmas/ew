@@ -15,13 +15,37 @@ class UserController extends Controller
 //            ->with('title', 'Listado de usuarios');
         return view('users.index', compact('title', 'users'));
     }
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::find($id);
         return view('users.show', compact('user'));
     }
     public function create()
     {
-        return 'Crear nuevo usuario';
+        return view('users.create');
+    }
+    public function store()
+    {
+        $data = request()->validate([
+            'name' => 'required'
+        ], [
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password'])
+        ]);
+        return redirect()->route('users.index');
     }
 }
+
+
+
+
+    /**
+            public function show($id)
+    {
+        $user = User::find($id);
+        return view('users.show', compact('user'));
+    }
+    */
