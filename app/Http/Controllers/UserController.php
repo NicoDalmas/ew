@@ -26,7 +26,9 @@ class UserController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => 'required',
         ], [
             'name.required' => 'El campo nombre es obligatorio'
         ]);
@@ -37,10 +39,11 @@ class UserController extends Controller
         ]);
         return redirect()->route('users.index');
     }
+    public function edit(User $user)
+    {
+        return view('users.edit', ['user' => $user]);
+    }
 }
-
-
-
 
     /**
             public function show($id)
