@@ -1,4 +1,3 @@
-
 @extends('layout')
 
 @section('title', "Usuario {$user->id}")

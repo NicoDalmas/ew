@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
     public function index()
@@ -43,12 +44,25 @@ class UserController extends Controller
     {
         return view('users.edit', ['user' => $user]);
     }
-}
-
-    /**
-            public function show($id)
+    public function update(User $user)
     {
-        $user = User::find($id);
-        return view('users.show', compact('user'));
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
+            'password' => '',
+        ]);
+        if ($data['password'] != null) {
+            $data['password'] = bcrypt($data['password']);
+        } else {
+            unset($data['password']);
+        }
+        $user->update($data);
+        return redirect()->route('users.show', ['user' => $user]);
     }
-    */
+    function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('users.index');
+    }
+
+    }

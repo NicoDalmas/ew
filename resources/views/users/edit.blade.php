@@ -16,7 +16,8 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ url('usuarios') }}">
+    <form method="POST" action="{{ url("usuarios/{$user->id}") }}">
+        {{ method_field('PUT') }}
         {{ csrf_field() }}
 
         <label for="name">Nombre:</label>
@@ -30,3 +31,8 @@
         <br>
         <button type="submit">Actualizar usuario</button>
     </form>
+
+    <p>
+        <a href="{{ route('users.index') }}">Regresar al listado de usuarios</a>
+    </p>
+@endsection
