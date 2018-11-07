@@ -1,4 +1,4 @@
-@extends('layoutnico')
+@extends('layout')
 
 @section('title', 'Bienvenido')
 
