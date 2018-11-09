@@ -28,3 +28,6 @@ Route::get('/usuarios/{user}/editar', 'UserController@edit')->name('users.edit')
 Route::put('/usuarios/{user}', 'UserController@update');
 Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');
 Route::delete('/usuarios/{user}', 'UserController@destroy')->name('users.destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
