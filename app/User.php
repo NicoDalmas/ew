@@ -48,15 +48,15 @@ class User extends Authenticatable
         return $this->is_admin;
     }
 
+ //pagina de autentificacion
+
     public function roles()
     {
         return $this
             ->belongsToMany('App\Role')
             ->withTimestamps();
     }
-
-
-    //pagina de autentificacion
+   
     public function authorizeRoles($roles)
     {
         if ($this->hasAnyRole($roles)) {

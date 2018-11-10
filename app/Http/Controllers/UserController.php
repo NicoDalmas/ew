@@ -33,6 +33,7 @@ class UserController extends Controller
         ], [
             'name.required' => 'El campo nombre es obligatorio'
         ]);
+
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -59,7 +60,7 @@ class UserController extends Controller
         $user->update($data);
         return redirect()->route('users.show', ['user' => $user]);
     }
-    function destroy(User $user)
+    public function destroy(User $user)
     {
         $user->delete();
         return redirect()->route('users.index');
