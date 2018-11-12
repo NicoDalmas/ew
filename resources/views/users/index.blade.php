@@ -6,7 +6,9 @@
     <div class="d-flex justify-content-between align-items-end mb-3">
         <h1 class="pb-1">{{ $title }}</h1>
         <p>
-            <a href="{{ route('users.create') }}" class="btn btn-primary">Nuevo usuario</a>
+             @if( Auth::check() && Auth::user()->hasRole("admin") )
+                <a href="{{ route('users.create') }}" class="btn btn-primary">Nuevo usuario</a>
+            @endif
         </p>
     </div>
 

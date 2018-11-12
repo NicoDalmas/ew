@@ -13,10 +13,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css" integrity="sha256-CNwnGWPO03a1kOlAsGaH5g8P3dFaqFqqGFV/1nkX5OU=" crossorigin="anonymous" />
     <!-- Custom styles for this template -->
-  
-
-
-         
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
@@ -32,20 +28,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
+                @if( Auth::check())
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/usuarios') }}">Usuarios</a>
+                    <a class="nav-link" href="{{ url('/usuarios') }}"><span class="oi oi-people"></span>Usuarios</a>
                 </li>
 
+                
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">Salir</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
+                    <a class="nav-link" href=""><span class="oi oi-eye"></span>Mi perfil</a>
                 </li>
                 
-   
+                <li class="nav-item active">
+                   
+                        <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Salir</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    
+                </li>
+                @endif
             </ul>
         </div>
     </nav>
