@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -19,6 +20,11 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('users.show', compact('user'));
+    }
+    public function profile()
+    {
+        $user_auth = Auth::user();
+        return view('auth.miperfil', compact('user_auth'));
     }
     public function create()
     {

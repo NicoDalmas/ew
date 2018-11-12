@@ -35,11 +35,10 @@
 
                 
                 <li class="nav-item active">
-                    <a class="nav-link" href=""><span class="oi oi-eye"></span>Mi perfil</a>
+                    <a class="nav-link" href="{{ route('miperfil.show') }}"><span class="oi oi-eye"></span>Mi perfil</a>
                 </li>
                 
                 <li class="nav-item active">
-                   
                         <a class="nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Salir</a>
