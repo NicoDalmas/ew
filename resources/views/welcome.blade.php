@@ -4,11 +4,7 @@
 
 @section('content')
 
-@if( Auth::check())
-	Bienvenido!
-	
-
-	@else
+@unless (Auth::check())
 
 <div class="container">
     <div class="row">
@@ -76,7 +72,7 @@
     </div>
 </div>
 
-@endif
+@endunless
 
 @endsection
 
