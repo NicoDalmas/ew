@@ -29,9 +29,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /** 
+
     protected $casts = [
         'is_admin' => 'boolean'
     ];
+
+    */
 
     public static function findByEmail($email)
     {
@@ -43,10 +47,12 @@ class User extends Authenticatable
         return $this->belongsTo(Profession::class);
     }
 
+    /**
     public function isAdmin()
     {
         return $this->is_admin;
     }
+    */
 
  //pagina de autentificacion
 

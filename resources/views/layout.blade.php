@@ -29,24 +29,25 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 @if( Auth::check())
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/usuarios') }}"><span class="oi oi-people"></span>Usuarios</a>
+                    <a class="nav-link" href="{{ route('miperfil.show') }}"><span class="oi oi-eye"></span> Mi perfil</a>
                 </li>
 
-                
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('miperfil.show') }}"><span class="oi oi-eye"></span>Mi perfil</a>
+                    <a class="nav-link" href="{{ url('/usuarios') }}"><span class="oi oi-people"></span> Usuarios</a>
                 </li>
-                
-                <li class="nav-item active">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">Salir</a>
+                                document.getElementById('logout-form').submit();"><span class="oi oi-account-logout"></span> Salir</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
-                    
-                </li>
+                    </li>
+                </ul>
                 @endif
             </ul>
         </div>
@@ -56,7 +57,7 @@
 <!-- Begin page content -->
 <main role="main" class="container">
     <div class="row mt-3">
-        <div class="col-8">
+        <div class="">
             @yield('content')
         </div>
         <div class="col-4">
