@@ -5,12 +5,35 @@
 @section('title', "Mi Perfil - Id: {$user_auth->id}")
 
 @section('content')
-    <h1>Usuario #{{ $user_auth->id }}</h1>
+<div class="card">
+        <h4 class="card-header">Datos personales</h4>
+        <div class="card-body">
 
-    <p>Nombre del usuario: {{ $user_auth->name }}</p>
-    <p>Correo electrónico: {{ $user_auth->email }}</p>
+			<table class="table table-dark">
+				<thead>
+					<tr>
+					<th scope="col">Usuario</th>
+					<th scope="col">#{{ $user_auth->id }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Nombre del usuario:</td>
+						<td>{{ $user_auth->name }}</td>
+					</tr>
+					<tr>
+						<td>Correo electrónico:</td>
+						<td>{{ $user_auth->email }}</td>
+					</tr>
+				</tbody>
+			</table>
 
-    <p>
-        <a href="{{ route('users.index') }}">Ir al listado de usuarios</a>
-    </p>
+		    <p>
+		    	<a class="btn btn-primary" href="">Editar mi información</a>
+		        <a class="btn btn-secondary" href="{{ route('users.index') }}">Ir al listado de usuarios</a>
+		    </p>
+
+		</div>
+</div>
+
 @endsection
