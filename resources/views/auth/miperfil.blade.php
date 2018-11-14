@@ -29,10 +29,9 @@
 			</table>
 
 		    <p>
-		    	<a class="btn btn-primary" href="">Editar mi información</a>
+		    	<a class="btn btn-primary" href="{{ route('users.edit', $user_auth) }}">Editar mi información</a>
 		        <a class="btn btn-secondary" href="{{ route('users.index') }}">Ir al listado de usuarios</a>
 		    </p>
-
 		</div>
 </div>
 

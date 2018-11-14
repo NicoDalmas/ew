@@ -7,12 +7,12 @@
 @unless (Auth::check())
 
  <div class="card">
-        <h4 class="card-header">Login</h4>
+        <h4 class="card-header">Iniciar Sesión</h4>
         <div class="card-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="">E-Mail Address</label>
+                            <label for="email" class="">E-Mail</label>
                             
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
                                 @if ($errors->has('email'))
@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="">Password</label>
+                            <label for="password" class="">Contraseña</label>
 
                             
                                 <input id="password" type="password" class="form-control" name="password" required>

@@ -29,11 +29,12 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/usuarios/{user}/editar', 'UserController@edit')->name('users.edit');
 	Route::put('/usuarios/{user}', 'UserController@update');
 	Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');
-	Route::delete('/usuarios/{user}', 'UserController@destroy')->name('users.destroy');
+	Route::delete('/usuarios/delete/{user}', 'UserController@destroy')->name('users.destroy');
 
 	Route::get('/auth/miperfil', 'UserController@profile')
 	    ->where('user', '[0-9]+')
 	    ->name('miperfil.show');
+
 });
 //crear routegroup con el auth
 Auth::routes();
