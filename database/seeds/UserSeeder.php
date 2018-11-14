@@ -19,21 +19,24 @@ class UserSeeder extends Seeder
         $role_user = Role::where('name', 'user')->first();
         $role_admin = Role::where('name', 'admin')->first();
 
-        $professionId = Profession::where('title', 'Desarrollador back-end')->value('id');
-
+        //$professionId = Profession::where('title', 'Desarrollador back-end')->value('id');
+        $professionId = Profession::all();
         $user_admin = factory(User::class)->create([
             'name' => 'Nicolás Dalmás',
             'email' => 'ndalmas9@gmail.com',
-            'password' => bcrypt('nicolas92'),
-            'profession_id' => $professionId,
+            //'phone' => '153796796',
+            //'address' => 'Francia 4731',
+            'password' => bcrypt('nicolas123'),
+            'profession_id' => '3',
 
         ]);
-            $user_admin->roles()->attach($role_admin);
+        
+        $user_admin->roles()->attach($role_admin);
 
         
 
-        $users = factory(User::class, 48)->create([
-            'profession_id' => App\Profession::all()->random()->id,
+        $users = factory(User::class, 47)->create([
+            'profession_id' => $professionId->random()->id,
             
         ]);
 
