@@ -52,13 +52,12 @@
                     </li>
                 </ul>
                 @endif
-            </ul>
         </div>
     </nav>
 </header>
 
 <!-- Begin page content -->
-<main role="main" class="container">
+<main class="container">
     <div class="row mt-3">
         <div class="col-8">
             @yield('content')
@@ -71,7 +70,7 @@
 
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">Entornos Web 2018</span>
+        <span class="text-muted">UCEL - ISI - Entornos Web - 2016 - Trabajo final: Nicolás Dalmás</span>
     </div>
 </footer>
 

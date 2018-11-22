@@ -65,9 +65,7 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
 @else
     <div class="card">
         <h4 class="card-header">Bienvenido!</h4>
