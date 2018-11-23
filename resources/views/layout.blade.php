@@ -50,8 +50,9 @@
                             {{ csrf_field() }}
                         </form>
                     </li>
-                </ul>
+               
                 @endif
+                 </ul>
         </div>
     </nav>
 </header>

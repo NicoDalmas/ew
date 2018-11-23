@@ -1,10 +1,12 @@
 @extends('layout')
 
-@Auth::user()
+
 
 @section('title', "Mi Perfil - Id: {$user_auth->id}")
 
 @section('content')
+<div style="visibility: hidden">@Auth::user()</div>
+
 <div class="card">
         <h4 class="card-header">Datos personales</h4>
         <div class="card-body">
