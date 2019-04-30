@@ -5,6 +5,8 @@ use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Input;
+
 class UserController extends Controller
 {
     public function index()
@@ -69,6 +71,11 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+
+        if(Input::get('is_ajax') == "ok"){
+            return "ok";
+        }
+
         return redirect()->route('users.index');
     }
 

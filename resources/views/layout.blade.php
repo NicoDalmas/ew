@@ -71,7 +71,11 @@
 
 <footer class="footer">
     <div class="container">
+<<<<<<< HEAD
+        <span class="text-muted">UCEL - ISI - Entornos Web - 2016 - Trabajo final: (Dalmás, Nicolás)</span>
+=======
         <span class="text-muted">UCEL - ISI - Entornos Web - 2016 - Trabajo final: Nicolás Dalmás</span>
+>>>>>>> 3bdcdb40d9dc0891afea63c90010422a092f9976
     </div>
 </footer>
 
@@ -83,7 +87,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="/plugins/js/jquery-3.4.0.min.js"></script>
 
 </body>
 </html>
