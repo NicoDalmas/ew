@@ -71,11 +71,8 @@
 
 <footer class="footer">
     <div class="container">
-<<<<<<< HEAD
         <span class="text-muted">UCEL - ISI - Entornos Web - 2016 - Trabajo final: (Dalmás, Nicolás)</span>
-=======
         <span class="text-muted">UCEL - ISI - Entornos Web - 2016 - Trabajo final: Nicolás Dalmás</span>
->>>>>>> 3bdcdb40d9dc0891afea63c90010422a092f9976
     </div>
 </footer>
 
