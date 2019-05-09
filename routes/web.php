@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function(){
 	    ->where('user', '[0-9]+')
 	    ->name('miperfil.show');
 
+	Route::get('/map', 'MapController@index')->name('map.map');
+
 });
 //crear routegroup con el auth
 Auth::routes();

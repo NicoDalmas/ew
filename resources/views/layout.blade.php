@@ -40,6 +40,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ url('/usuarios') }}"><span class="oi oi-people"></span> Usuarios</a>
                 </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/map') }}"><span class="oi oi-map"></span> Mapa</a>
+                </li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item active">
