@@ -2,6 +2,7 @@
 
 @section('title', 'Usuarios')
 
+
 @section('content')
     <div class="d-flex justify-content-between align-items-end mb-3">
         <h1 class="pb-1">{{ $title }}</h1>
@@ -23,6 +24,7 @@
         </tr>
         </thead>
         <tbody>
+        <!--    
         @foreach($users as $user)
         <tr id="fila-{{ $user->id }}">
             <th scope="row" class="id">{{ $user->id }}</th>
@@ -35,15 +37,21 @@
                     {{ method_field('DELETE') }}
                     <a href="{{ route('users.show', $user) }}" class="btn btn-link"><span class="oi oi-eye"></span></a>
                     <a href="{{ route('users.edit', $user) }}" class="btn btn-link"><span class="oi oi-pencil"></span></a>
-                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-link"><span class="oi oi-trash"></span></button>
-                    
+                 -->
+                    <!-- /* Boton eliminar común 
+                     <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-link"><span class="oi oi-trash"></span></button> 
+                    -->
+
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-perro="{{ $user->id }}">Eliminar</button>
+                    <!--
+                    <button type="button" class="btn btn-link"><span class="oi oi-trash" data-toggle="modal" data-target="#exampleModal" data-perro="{{ $user->id }}"></span></button>
                     </form>
                 @endif
             </td>
         </tr>
         @endforeach
+-->
+
 
         </tbody>
     </table>
@@ -74,7 +82,17 @@
 </div>
 
 
-<script type="text/javascript">
+
+
+
+@endsection
+
+@section('sidebar')
+    @parent
+@endsection
+
+@section('javascript')
+    <script type="text/javascript">
                // Delete the URL and remove it from list.
 
             $('#exampleModal').on('show.bs.modal', function(e) {
@@ -110,10 +128,4 @@
                 });
             });
 </script>
-
-
-@endsection
-
-@section('sidebar')
-    @parent
 @endsection

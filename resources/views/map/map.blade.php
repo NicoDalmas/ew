@@ -13,7 +13,7 @@ integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqD
 crossorigin=""></script>
 
 
-@section('title')
+@section('title', 'Mapa')
 
 @section('content')
     

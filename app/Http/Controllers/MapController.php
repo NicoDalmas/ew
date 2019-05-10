@@ -12,6 +12,6 @@ class MapController extends Controller
 	//        return view('users.index')
 	//            ->with('users', User::all())
 	//            ->with('title', 'Listado de usuarios');
-	        return view('map.map', compact('title'));
+	        return view('map.map');
 	    }
 }
