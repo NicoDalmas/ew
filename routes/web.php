@@ -19,6 +19,9 @@ c
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/usuarios', 'UserController@index')
 	    ->name('users.index');
+
+	Route::get('/usuarios/datatablee', 'DatatablesController@anyData')
+		->name ('users.datatable');
 	
 	Route::get('/usuarios/{user}', 'UserController@show')
 	    ->where('user', '[0-9]+')
@@ -35,7 +38,8 @@ Route::group(['middleware' => 'auth'], function(){
 	    ->where('user', '[0-9]+')
 	    ->name('miperfil.show');
 
-	Route::get('/map', 'MapController@index')->name('map.map');
+	Route::get('/map', 'MapController@index')
+		->name('map.map');
 
 });
 //crear routegroup con el auth

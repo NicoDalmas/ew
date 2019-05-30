@@ -13,8 +13,8 @@
         </p>
     </div>
 
-    @if ($users->isNotEmpty())
-    <table class="table">
+    <div class="table-responsive">
+     <table class="table table-striped table-bordered" style="width:100%" id="users-table">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -24,65 +24,30 @@
         </tr>
         </thead>
         <tbody>
-        <!--    
-        @foreach($users as $user)
-        <tr id="fila-{{ $user->id }}">
-            <th scope="row" class="id">{{ $user->id }}</th>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
-            <td>
-                @if( Auth::check() && Auth::user()->hasRole("admin") )
-                    <form action="{{ route('users.destroy', $user) }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <a href="{{ route('users.show', $user) }}" class="btn btn-link"><span class="oi oi-eye"></span></a>
-                    <a href="{{ route('users.edit', $user) }}" class="btn btn-link"><span class="oi oi-pencil"></span></a>
-                 -->
-                    <!-- /* Boton eliminar común 
-                     <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-link"><span class="oi oi-trash"></span></button> 
-                    -->
-
-                    <!-- Button trigger modal -->
-                    <!--
-                    <button type="button" class="btn btn-link"><span class="oi oi-trash" data-toggle="modal" data-target="#exampleModal" data-perro="{{ $user->id }}"></span></button>
-                    </form>
-                @endif
-            </td>
-        </tr>
-        @endforeach
--->
-
-
         </tbody>
     </table>
-    @else
-        <p>No hay usuarios registrados.</p>
-    @endif
+   </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro que quieres eliminar este Usuario?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Si elimina este registro, no va a poder volver a acceder al sistema.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" id="borrar" class="btn btn-primary" data-dismiss="modal">Si, eliminar</button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro que quieres eliminar este Usuario?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Si elimina este registro, no va a poder volver a acceder al sistema.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" id="borrar" class="btn btn-primary" data-dismiss="modal">Si, eliminar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-
 
 
 @endsection
@@ -119,6 +84,7 @@
                     success: function (data) {
                        console.log(data);
                        $("#fila-" + user).remove();
+                       table.ajax.reload();
                        
                        
                     },
@@ -127,5 +93,25 @@
                     }
                 });
             });
+
+
+    //datatable
+    table= $('#users-table').DataTable({
+        processing: true,
+        serverSide: true,
+        scrollX: true,
+        responsive: true,
+        colReorder: true,
+        keys: true,
+        select: true,
+        ajax: '{!! route('users.datatable') !!}',
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'action', name: 'action', orderable: false, searchable: false }
+        ]
+    });
+
 </script>
 @endsection
