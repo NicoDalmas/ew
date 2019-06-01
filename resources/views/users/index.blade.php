@@ -99,10 +99,10 @@
     table= $('#users-table').DataTable({
         processing: true,
         serverSide: true,
-        scrollX: true,
+       // scrollX: true,
         responsive: true,
         colReorder: true,
-        keys: true,
+       // keys: true,
         select: true,
         ajax: '{!! route('users.datatable') !!}',
         columns: [
