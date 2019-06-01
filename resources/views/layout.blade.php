@@ -67,7 +67,7 @@
 <!-- Begin page content -->
 <main class="container">
     <div class="row mt-3">
-        <div class="col-8">
+        <div class="col-9">
             @yield('content')
         </div>
         <div class="col-4">
