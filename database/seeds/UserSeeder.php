@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        
         //$professions = DB::select('SELECT id FROM professions WHERE title = ?', ['Desarrollador back-end']);
         $role_user = Role::where('name', 'user')->first();
         $role_admin = Role::where('name', 'admin')->first();

@@ -14,6 +14,7 @@ class ProfessionSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('TRUNCATE TABLE professions RESTART IDENTITY CASCADE');
 //        DB::insert('INSERT INTO professions (title) VALUES (:title)', [
 //            'title' => 'Desarrollador back-end',
 //        ]);

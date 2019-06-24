@@ -12,6 +12,7 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('TRUNCATE TABLE roles RESTART IDENTITY CASCADE');
         $role = new Role();
         $role->name = 'admin';
         $role->description = 'Administrator';
